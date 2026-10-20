@@ -1,6 +1,7 @@
 
 #Cadastro de Computadores
 from computador import Computador
+from dados import computadores
 
 computadores = []
 

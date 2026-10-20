@@ -1,6 +1,6 @@
 #Cadastro de Clientes
-
 from cliente import Cliente
+from dados import clientes
 clientes = []
 while True:
     print('Cadastre um cliente')
@@ -21,7 +21,7 @@ while True:
     clientes.append(novo_cliente)
     print('Cliente cadastrado!')
     while True:
-        ver = ver = str(input('Adicionar mais ccomputadores? (S/N): ')).upper()
+        ver = input('Adicionar mais clientes? (S/N): ').upper()
         if ver == 'S' or ver == 'N':
             break
         else:

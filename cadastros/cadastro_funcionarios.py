@@ -1,4 +1,5 @@
 from funcionario import Funcionario
+from dados import funcionarios
 
 funcionarios = []
 
