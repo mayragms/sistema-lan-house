@@ -3,4 +3,3 @@ class Pessoa:
         self.nome = nome
         self.data_nascimento = data_nascimento
         self.cpf = cpf
-        
