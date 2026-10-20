@@ -1,12 +1,13 @@
 from cliente import Cliente
 from computador import Computador
 from datetime import datetime
+from plano import Plano
 
 class Sessao:
-    def __init__(self, cliente, computador, valor_computador):
+    def __init__(self, cliente, computador, plano=None):
         self.cliente = cliente
         self.computador = computador
-        self.valor_computador = valor_computador
+        self.plano = plano
         self.hora_inicio = None
         self.hora_fim = None
         self.valor_total = None
@@ -34,9 +35,29 @@ class Sessao:
         
     def calcular_valor(self):
         duracao = self.calcular_duracao()
-
-        if duracao is not None:
+# Cobrança por hora avulsa
+        if duracao is not None and self.plano is None:
             horas = duracao.total_seconds() / 3600
             self.valor_total = horas * self.computador.valor_computador
             return self.valor_total
+#Cobrança plano
+        if duracao is not None and self.plano is not None:
+            horas = duracao.total_seconds()/3600
+            
+            #Se ultrapassar as horas do plano
+            if horas > self.plano.duracao:
+                hora_extra = horas - self.plano.duracao
+                valor_extra = hora_extra * self.computador.valor_computador
+                self.valor_total = self.plano_preco + valor_extra
+            
+            #Se não ultrapassar
+            else:
+                self.valor_total = self.plano.preco
+
+            return self.valor_total
+
+        return None
+            
+        
+
     
