@@ -3,3 +3,6 @@ class Pessoa:
         self.nome = nome
         self.data_nascimento = data_nascimento
         self.cpf = cpf
+
+    def exibir_dados(self):
+        return f'Nome: {self.nome}'

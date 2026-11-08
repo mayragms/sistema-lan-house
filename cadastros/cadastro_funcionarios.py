@@ -1,9 +1,7 @@
 from funcionario import Funcionario
 from dados import funcionarios
 
-funcionarios = []
 
-clientes = []
 while True:
     print('---Cadastre um funcionário---')
     nome = input("Nome: ")

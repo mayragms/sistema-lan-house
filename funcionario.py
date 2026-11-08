@@ -6,3 +6,6 @@ class Funcionario(Pessoa):
         super().__init__(nome,data_nascimento,cpf)
         self.cargo = cargo
         self.id_funcionario = str(uuid.uuid4())
+
+    def exibir_dados(self):
+        return f'Funcionário: {self.nome} | Cargo: {self.cargo}'

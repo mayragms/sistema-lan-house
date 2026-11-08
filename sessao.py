@@ -13,14 +13,14 @@ class Sessao:
         self.valor_total = None
 
     def iniciar(self):
-        if self.computador.ocupar() == True:
+        if self.computador.ocupar():
             self.hora_inicio = datetime.now()
             return True
         else:
             print('Não foi possível iniciar a sessão: computador ocupado!')
             return False
     def terminar(self):
-        if self.hora_inicio is not None:
+        if self.hora_inicio is not None and self.hora_fim is None:
             self.hora_fim = datetime.now()
             self.computador.liberar()
         else:
@@ -48,7 +48,7 @@ class Sessao:
             if horas > self.plano.duracao:
                 hora_extra = horas - self.plano.duracao
                 valor_extra = hora_extra * self.computador.valor_computador
-                self.valor_total = self.plano_preco + valor_extra
+                self.valor_total = self.plano.preco + valor_extra
             
             #Se não ultrapassar
             else:
@@ -57,7 +57,8 @@ class Sessao:
             return self.valor_total
 
         return None
-            
+    def consultar_preco_plano(self, plano):
+        return plano.preco
         
 
     

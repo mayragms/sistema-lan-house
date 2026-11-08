@@ -3,7 +3,6 @@
 from computador import Computador
 from dados import computadores
 
-computadores = []
 
 while True:
     while True:

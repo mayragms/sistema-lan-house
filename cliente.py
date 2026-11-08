@@ -5,3 +5,6 @@ class Cliente(Pessoa):
     def __init__(self, nome, data_nascimento, cpf):
         super().__init__(nome, data_nascimento, cpf)
         self.id_cliente = str(uuid.uuid4())
+
+    def exibir_dados(self):
+        return f'Cliente: {self.nome} | CPF: {self.cpf}'
