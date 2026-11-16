@@ -1,3 +1,5 @@
 clientes = []
 computadores = []
 funcionarios = []
+planos = []
+sessoes = []
